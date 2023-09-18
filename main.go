@@ -16,16 +16,56 @@ func main() {
 		1433,
 		"EINTEGRA_SL")
 
-	cll := logiclayer.SapCompanyLL{}
+	//cll := logiclayer.SapCompanyLL{}
 
-	companies, err := cll.GetCompanies()
+	// companies, err := cll.GetCompanies()
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// for _, company := range *companies {
+	// 	println(company.CompanyDB)
+	// }
+
+	// company, err := cll.GetCompany("SB1LD_DTL_PRD")
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// println(company.CompanyDB)
+
+	// }
+
+	// company, err := cll.GetCompany("SB1LD_DTL_PRD")
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// cll := logiclayer.SapIncommingInterfacesLL{}
+
+	// a, err := cll.GetIncommingInterfacesByProcess("EXPERP")
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// for _, b := range *a {
+	// 	println(b.InterfaceId)
+	// }
+
+	cll := logiclayer.SapIncommingInterfacesLL{}
+
+	a, err := cll.GetQueriesByInterface(2)
 
 	if err != nil {
 		panic(err)
 	}
 
-	for _, company := range *companies {
-		println(company.CompanyDB)
+	for _, b := range *a {
+		println(b.QueryDescription)
 	}
 
 }

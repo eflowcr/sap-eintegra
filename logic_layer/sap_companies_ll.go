@@ -21,3 +21,17 @@ func (SapCompanyLL) GetCompanies() (*[]models.SapCompany, error) {
 	return data, nil
 
 }
+
+func (SapCompanyLL) GetCompany(id string) (*models.SapCompany, error) {
+
+	db := database.SapCompaniesDB{}
+
+	data, err := db.GetCompany(id)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return data, nil
+
+}

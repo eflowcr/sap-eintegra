@@ -23,3 +23,25 @@ func (db *SapCompaniesDB) GetCompanies() (*[]models.SapCompany, error) {
 	return &companies, nil
 
 }
+
+func (db *SapCompaniesDB) GetCompany(id string) (*models.SapCompany, error) {
+
+	dbRepository, err := GetLocalConnection(DSN)
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer dbRepository.db.Close()
+
+	var company models.SapCompany
+
+	result := dbRepository.db.Where("company_db = ?", id).Find(&company).Error
+
+	if result != nil {
+		return nil, result
+	}
+
+	return &company, nil
+
+}
