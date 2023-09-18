@@ -4,7 +4,7 @@ import "github.com/eflowcr/sap-eintegra/models"
 
 type IncommingConnections struct{}
 
-func (IncommingConnections) GetConnections(interface_id int) (*[]models.IncommingConnectionsView, error) {
+func (IncommingConnections) GetConnections(interface_id int) (*models.IncommingConnectionsView, error) {
 
 	dbRepository, err := GetLocalConnection(DSN)
 
@@ -14,9 +14,9 @@ func (IncommingConnections) GetConnections(interface_id int) (*[]models.Incommin
 
 	defer dbRepository.db.Close()
 
-	var incommingProcess []models.IncommingConnectionsView
+	var incommingProcess models.IncommingConnectionsView
 
-	result := dbRepository.db.Debug().Where("interface_id = ?", interface_id).Find(&incommingProcess).Error
+	result := dbRepository.db.Find(&incommingProcess, "interface_id = ?", interface_id).Error
 
 	if result != nil {
 		return nil, result

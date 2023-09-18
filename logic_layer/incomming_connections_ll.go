@@ -7,7 +7,7 @@ import (
 
 type IncommingConnectionsLL struct{}
 
-func (IncommingConnectionsLL) GetConnections(interface_id int) (*[]models.IncommingConnectionsView, error) {
+func (IncommingConnectionsLL) GetConnections(interface_id int) (*models.IncommingConnectionsView, error) {
 
 	db := database.IncommingConnections{}
 
