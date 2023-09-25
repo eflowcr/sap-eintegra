@@ -6,6 +6,7 @@ type IncommingConnectionsView struct {
 	InterfaceDescription     string `gorm:"column:interface_description"`
 	EflowServer              string `gorm:"column:eflow_server"`
 	EflowDatabase            string `gorm:"column:eflow_database"`
+	EflowPort                int    `gorm:"column:eflow_port"`
 	EflowUserName            string `gorm:"column:eflow_user_name"`
 	EflowUserPassword        string `gorm:"column:eflow_user_password"`
 	EflowConnectionString    string `gorm:"column:eflow_connection_string"`
